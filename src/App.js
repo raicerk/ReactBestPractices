@@ -5,16 +5,17 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      saludo: "defecto",
+      saludo: "Ricardo",
       valor: 1,
-      inputValue: ""
+      inputValue: "",
     }
   }
 
   handleClick = param => {
     this.setState({
       saludo:param,
-      valor: this.state.valor+1
+      valor: this.state.valor+1,
+      nombre:this.state.inputValue
     },()=>{
       console.log(this.state)
     })
@@ -31,7 +32,7 @@ class App extends Component {
       <div>
         <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)}/>
         <br></br>
-        <button onClick={()=>this.handleClick('Juan')}>mi valor actual es: {this.state.saludo}</button>
+        <button onClick={()=>this.handleClick('Juan')}>mi valor actual es: {this.state.inputValue}</button>
         <h4>Desde el boton {this.state.valor}</h4>
         <h5>{this.state.inputValue}</h5>
       </div>
